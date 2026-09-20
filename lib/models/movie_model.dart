@@ -10,7 +10,6 @@ class MovieModel {
   final double popularity;
   final String posterPath;
   final String releaseDate;
-  final bool softcore;
   final bool video;
   final double voteAverage;
   final int voteCount;
@@ -27,7 +26,6 @@ class MovieModel {
     required this.popularity,
     required this.posterPath,
     required this.releaseDate,
-    required this.softcore,
     required this.video,
     required this.voteAverage,
     required this.voteCount,
@@ -46,27 +44,9 @@ class MovieModel {
       popularity: (json['popularity'] ?? 0).toDouble(),
       posterPath: json['poster_path'] ?? '',
       releaseDate: json['release_date'] ?? '',
-      softcore: json['softcore'] ?? false,
       video: json['video'] ?? false,
       voteAverage: (json['vote_average'] ?? 0).toDouble(),
       voteCount: json['vote_count'] ?? 0,
-    );
-  }
-}
-
-class MovieDatesModel {
-  final String maximum;
-  final String minimum;
-
-  const MovieDatesModel({
-    required this.maximum,
-    required this.minimum,
-  });
-
-  factory MovieDatesModel.fromJson(Map<String, dynamic> json) {
-    return MovieDatesModel(
-      maximum: json['maximum'] ?? '',
-      minimum: json['minimum'] ?? '',
     );
   }
 }
